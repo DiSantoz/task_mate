@@ -10,8 +10,26 @@
   <body>
     <header>
       <h1 class="page-title">Task Mate</h1>
-      <p>Add a task!</p>
-      <button class="btn" id="save-task">Add Task</button>
+      <!-- form for entering new task -->
+      <form id="task-form">
+        <!-- input new task -->
+        <div class="form-group">
+          <input type="text" name="task-name" placeholder="Enter a new task" />
+        </div>
+        <!-- select task type -->
+        <div class="form-group">
+          <select name="task-type" class="select-dropdown">
+            <option value=" " disabled selected>Pick a task type</option>
+            <option value="Sketch">Sketch</option>
+            <option value="Web">Web</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+        </div>
+        <!-- submit task -->
+        <div class="form-group">
+          <button class="btn" id="save-task">Add Task</button>
+        </div>
+      </form>
     </header>
     <main class="page-content">
       <section class="task-list-wrapper">
