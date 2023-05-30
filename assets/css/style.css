@@ -176,6 +176,7 @@ footer {
   margin: 0;
   border: 2px solid var(--grey);
   border-radius: 12px;
+  /* default browser appearance removed */
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
