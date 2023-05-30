@@ -12,6 +12,14 @@ let taskForm = function (event) {
   // value of drop down menu
   let taskDropDown = document.querySelector("select[name='task-type']").value;
 
+  // check if inputs are empty
+  if (!captureTakeName || !taskDropDown) {
+    alert("You need to fill out the form");
+    return false;
+  }
+  // reset form on submit
+  formEl.reset();
+
   // put data in an object
   let taskDataObj = {
     name: captureTakeName,
