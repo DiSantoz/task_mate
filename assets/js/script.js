@@ -2,6 +2,8 @@ let taskIdCounter = 0;
 let formEl = document.querySelector("#task-form");
 let tasksToDoEl = document.querySelector("#tasks-to-do");
 let pageContent = document.querySelector("#page-content");
+let tasksInProgress = document.querySelector("#tasks-in-progress");
+let tasksCompletedEl = document.querySelector("#tasks-completed");
 
 // handling user form capturing and editing
 let taskForm = function (event) {
@@ -111,7 +113,7 @@ let createTaskActions = function (taskId) {
 
   return actionContainerEl;
 };
-// delete entries
+// changes for edit or delete button
 let taskButtonHandler = function (event) {
   let targetEl = event.target;
 
@@ -148,7 +150,29 @@ let editTask = function (taskDataID) {
   document.querySelector("#save-task").textContent = "Save Task";
   formEl.setAttribute("data-task-id", taskDataID);
 };
+
+// switch between boards
+let taskStatusChangeHandler = function (event) {
+  let taskId = event.target.getAttribute("data-task-id");
+
+  let statusValue = event.target.value.toLowerCase();
+
+  let taskSelected = document.querySelector(
+    ".task-item[data-task-id='" + taskId + "']"
+  );
+
+  if (statusValue === "to-do") {
+    tasksToDoEl.appendChild(taskSelected);
+  } else if (statusValue === "in progress") {
+    tasksInProgress.appendChild(taskSelected);
+  } else if (statusValue === "completed") {
+    tasksCompletedEl.appendChild(taskSelected);
+  }
+};
+
 // submit user data
 formEl.addEventListener("submit", taskForm);
 // clicking on edit or delete buttton
 pageContent.addEventListener("click", taskButtonHandler);
+// change between boards
+pageContent.addEventListener("change", taskStatusChangeHandler);
