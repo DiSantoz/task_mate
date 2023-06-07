@@ -68,6 +68,10 @@ footer {
   border-top: 5px solid var(--primary);
 }
 
+footer a:visited { 
+  text-decoration: none; 
+  color: var(--primary);}
+
 .page-title {
   color: var(--primary);
   margin-bottom: 5px;
